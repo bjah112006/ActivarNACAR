@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://pe.grupobbva.com/tat/ents/header"
+	attributeFormDefault="unqualified" elementFormDefault="unqualified"
+	targetNamespace="http://pe.grupobbva.com/tat/ents/header">
+	
+	<xsd:element name="requestHeader" type="tns:RequestHeader" />
+	<xsd:element name="responseHeader" type="tns:ResponseHeader" />
+	<xsd:element name="requestHeaderSegura" type="tns:RequestHeaderSegura" />
+	
+	<xsd:complexType name="RequestHeader">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="usuario" type="xsd:string" />
+			<xsd:element name="oficina" type="xsd:string" minOccurs="0"
+				maxOccurs="1"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RequestHeaderSegura">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="usuario" type="xsd:string" />
+			<xsd:element name="oficina" type="xsd:string" minOccurs="0"
+				maxOccurs="1"></xsd:element>
+			<xsd:element name="llave" type="xsd:string" minOccurs="0"
+				maxOccurs="1"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ResponseHeader">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="codigoRespuesta" type="xsd:string" />
+			<xsd:element minOccurs="0" name="mensajeRespuesta" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+</xsd:schema>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://pe.grupobbva.com/tat/ents/body/consultaConFiltros"
+	attributeFormDefault="unqualified" elementFormDefault="unqualified"
+	targetNamespace="http://pe.grupobbva.com/tat/ents/body/consultaConFiltros"
+	xmlns:ent="http://pe.grupobbva.com/tat/ents/body/entrega">
+	
+	<xsd:import schemaLocation="Entrega.xsd"
+		namespace="http://pe.grupobbva.com/tat/ents/body/entrega"></xsd:import>
+		
+	<xsd:element name="consultaConFiltrosRequest" type="tns:ConsultaConFiltrosRequest" />
+	<xsd:element name="consultaConFiltrosResponse" type="tns:ConsultaConFiltrosResponse" />
+	
+	<xsd:complexType name="ConsultaConFiltrosRequest">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="codigoOficina" type="xsd:string" />
+			<xsd:element minOccurs="0" name="codigoEstado" type="xsd:string" />
+			<xsd:element minOccurs="0" name="rangoSolicitud" type="tns:RangoSolicitud" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RangoSolicitud">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="inicio" type="xsd:date" />
+			<xsd:element minOccurs="0" name="fin" type="xsd:date" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultaConFiltrosResponse">
+		<xsd:sequence>
+			<xsd:element name="total" type="xsd:int" minOccurs="0"
+				maxOccurs="1">
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="listadoEntregas"
+				type="tns:ListadoEntregas" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListadoEntregas">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="entrega" type="ent:Entrega" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	
+</xsd:schema>

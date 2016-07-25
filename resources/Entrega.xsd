@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://pe.grupobbva.com/tat/ents/body/entrega"
+	attributeFormDefault="unqualified" elementFormDefault="unqualified"
+	targetNamespace="http://pe.grupobbva.com/tat/ents/body/entrega">
+	
+	<xsd:element name="entrega" type="tns:Entrega" />
+	
+	<xsd:complexType name="Entrega">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="datosPersona" type="tns:DatosPersona" />
+			<xsd:element minOccurs="0" name="datosEntrega" type="tns:DatosEntrega" />
+			<xsd:element minOccurs="0" name="datosOferta" type="tns:DatosOferta" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DatosPersona">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="tipoDocumento"
+				type="xsd:string" />
+			<xsd:element minOccurs="0" name="numeroDocumento"
+				type="xsd:string" />
+			<xsd:element minOccurs="0" name="nombreCompletoCliente"
+				type="xsd:string" />
+			<xsd:element name="telefono" type="xsd:string" minOccurs="0"
+				maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="direccion" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="exonerarVerifDomicilio" type="xsd:boolean" minOccurs="0" maxOccurs="1"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DatosEntrega">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="idEntrega" type="xsd:int" />
+			<xsd:element minOccurs="0" name="codEstadoEntrega"
+				type="xsd:string" />
+			<xsd:element minOccurs="0" name="descEstadoEntrega"
+				type="xsd:string" />
+			<xsd:element minOccurs="0" name="codEstadoAnterior"
+				type="xsd:string" maxOccurs="1" />
+			<xsd:element name="descEstadoAnterior" type="xsd:string"
+				minOccurs="0" maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="fecEstadoAnterior" type="xsd:date"
+				minOccurs="0" maxOccurs="1">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="codOficina"
+				type="xsd:string" />
+			<xsd:element minOccurs="0" name="descOficina"
+				type="xsd:string" />
+			<xsd:element minOccurs="0" name="dirOficina"
+				type="xsd:string" />
+			<xsd:element minOccurs="0" name="fecSolicitud"
+				type="xsd:date" />
+			<xsd:element minOccurs="0" name="fecEntrega"
+				type="xsd:date" />
+			<xsd:element name="dirEntrega" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DatosOferta">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="tarjeta" type="xsd:string" />
+			<xsd:element minOccurs="0" name="tipoProducto" type="xsd:string" />
+			<xsd:element minOccurs="0" name="descProducto" type="xsd:string" />
+			<xsd:element minOccurs="0" name="primeros4Digitos" type="xsd:string" />
+			<xsd:element minOccurs="0" name="ultimos4Digitos" type="xsd:string" />
+			<xsd:element minOccurs="0" name="contrato" type="xsd:string" />
+			<xsd:element minOccurs="0" name="monto" type="xsd:float" />
+			<xsd:element minOccurs="0" name="diaPago" type="xsd:string" />
+			<xsd:element name="flagAcptoTratDat" type="xsd:boolean"
+				minOccurs="0" maxOccurs="1"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+</xsd:schema>

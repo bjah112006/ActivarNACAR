@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:Hdr="http://pe.grupobbva.com/tat/ents/header"
+	xmlns:Ope1="http://pe.grupobbva.com/tat/ents/body/consultaPorDocumento"
+	xmlns:Ope2="http://pe.grupobbva.com/tat/ents/body/consultaConFiltros"
+	xmlns:Ope3="http://pe.grupobbva.com/tat/ents/body/entregaEnOficina"
+	xmlns:tns="http://pe.grupobbva.com/tat/service/message"
+	attributeFormDefault="unqualified" elementFormDefault="unqualified"
+	targetNamespace="http://pe.grupobbva.com/tat/service/message">
+	
+	<xs:import namespace="http://pe.grupobbva.com/tat/ents/header"
+		schemaLocation="HeaderFormat.xsd" />
+	<xs:import
+		namespace="http://pe.grupobbva.com/tat/ents/body/consultaPorDocumento"
+		schemaLocation="ConsultaPorDocumento.xsd" />
+	<xs:import
+		namespace="http://pe.grupobbva.com/tat/ents/body/consultaConFiltros"
+		schemaLocation="ConsultaConFiltros.xsd" />
+	<xs:import
+		namespace="http://pe.grupobbva.com/tat/ents/body/entregaEnOficina"
+		schemaLocation="EntregaEnOficina.xsd" />
+	
+	<xs:element name="consultaPorDocumentoRequest" type="tns:consultaPorDocumentoRequest" />
+	<xs:element name="consultaPorDocumentoResponse" type="tns:consultaPorDocumentoResponse" />
+	<xs:element name="consultaConFiltrosRequest" type="tns:consultaConFiltrosRequest" />
+	<xs:element name="consultaConFiltrosResponse" type="tns:consultaConFiltrosResponse" />
+	<xs:element name="entregaEnOficinaRequest" type="tns:entregaEnOficinaRequest" />
+	<xs:element name="entregaEnOficinaResponse" type="tns:entregaEnOficinaResponse" />
+	
+	<xs:complexType name="consultaPorDocumentoRequest">
+		<xs:sequence>
+			<xs:element name="refRequestHeader" type="Hdr:RequestHeader" />
+			<xs:element name="refConsultaPorDocumentoRequest" type="Ope1:ConsultaPorDocumentoRequest" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="consultaPorDocumentoResponse">
+		<xs:sequence>
+			<xs:element name="refResponseHeader" type="Hdr:ResponseHeader" />
+			<xs:element minOccurs="0" name="refConsultaPorDocumentoResponse"
+				type="Ope1:ConsultaPorDocumentoResponse" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="consultaConFiltrosRequest">
+		<xs:sequence>
+			<xs:element name="refRequestHeader" type="Hdr:RequestHeader" />
+			<xs:element name="refConsultaConFiltrosRequest" type="Ope2:ConsultaConFiltrosRequest" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="consultaConFiltrosResponse">
+		<xs:sequence>
+			<xs:element name="refResponseHeader" type="Hdr:ResponseHeader" />
+			<xs:element minOccurs="0" name="refConsultaConFiltrosResponse"
+				type="Ope2:ConsultaConFiltrosResponse" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="entregaEnOficinaRequest">
+		<xs:sequence>
+			<xs:element name="refRequestHeader" type="Hdr:RequestHeaderSegura" />
+			<xs:element name="refEntregaEnOficinaRequest" type="Ope3:EntregaEnOficinaRequest" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="entregaEnOficinaResponse">
+		<xs:sequence>
+			<xs:element name="refResponseHeader" type="Hdr:ResponseHeader" />
+			<xs:element minOccurs="0" name="refEntregaEnOficinaResponse"
+				type="Ope3:EntregaEnOficinaResponse" />
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

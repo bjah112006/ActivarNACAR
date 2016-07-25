@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="EntregaTarjetasWS"
+	targetNamespace="http://pe.grupobbva.com/tat/service/message"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="http://pe.grupobbva.com/tat/service/message"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	
+	<wsdl:types>
+		<xsd:schema
+			targetNamespace="http://pe.grupobbva.com/tat/service/message">
+			<xsd:include schemaLocation="MessageFormat.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="consultaConFiltrosRequestMsg">
+		<wsdl:part name="consultaConFiltrosRequest" element="tns:consultaConFiltrosRequest">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="consultaPorDocumentoRequestMsg">
+		<wsdl:part name="consultaPorDocumentoRequest" element="tns:consultaPorDocumentoRequest">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="entregaEnOficinaRequestMsg">
+		<wsdl:part name="entregaEnOficinaRequest" element="tns:entregaEnOficinaRequest">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="consultaPorDocumentoResponseMsg">
+		<wsdl:part name="consultaPorDocumentoResponse" element="tns:consultaPorDocumentoResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="consultaConFiltrosResponseMsg">
+		<wsdl:part name="consultaConFiltrosResponse" element="tns:consultaConFiltrosResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="entregaEnOficinaResponseMsg">
+		<wsdl:part name="entregaEnOficinaResponse" element="tns:entregaEnOficinaResponse">
+		</wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:portType name="EntregaTarjetasWS">
+		<wsdl:operation name="consultaPorDocumento">
+			<wsdl:input message="tns:consultaPorDocumentoRequestMsg">
+			</wsdl:input>
+			<wsdl:output message="tns:consultaPorDocumentoResponseMsg">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="consultaConFiltros">
+			<wsdl:input message="tns:consultaConFiltrosRequestMsg">
+			</wsdl:input>
+			<wsdl:output message="tns:consultaConFiltrosResponseMsg">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="entregaEnOficina">
+			<wsdl:input message="tns:entregaEnOficinaRequestMsg">
+			</wsdl:input>
+			<wsdl:output message="tns:entregaEnOficinaResponseMsg">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	
+	<wsdl:binding name="EntregaTarjetasWS_HttpBinding"
+		type="tns:EntregaTarjetasWS">		
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="consultaPorDocumento">
+			<soap:operation
+				soapAction="http://pe.grupobbva.com/tat/service/message" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="consultaConFiltros">
+			<soap:operation
+				soapAction="http://pe.grupobbva.com/tat/service/message" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="entregaEnOficina">
+			<soap:operation
+				soapAction="http://pe.grupobbva.com/tat/service/message" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	<wsdl:service name="EntregaTarjetasWS">
+		<wsdl:documentation>Servicio de consulta y activacion de tarjetas fast</wsdl:documentation>
+		<wsdl:port name="EntregaTarjetasWS" binding="tns:EntregaTarjetasWS_HttpBinding">
+			<wsdl:documentation>Servicio de consulta y entregas de tarjeta</wsdl:documentation>
+			<soap:address location="http://118.216.89.82:9080/DeliveryServicesSign/services/EntregaTarjetasWS" />
+		</wsdl:port>
+	</wsdl:service>
+	
+</wsdl:definitions>
